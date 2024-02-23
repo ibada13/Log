@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +16,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+
+Route::get('/hello/{id}',function(int $id){
+    // ddd($id);
+    return response("<h1>hello there ($id) </h1>",200);
+})->where('id','[0-9]+');
+
+Route::get('search/',function(Request $req){
+    
 });

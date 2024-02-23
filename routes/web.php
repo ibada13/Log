@@ -14,13 +14,19 @@ use App\Models\Posts;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/posts',function(){
+    return view('posts',[
+       'posts'=>Posts::all(),
+        ]);
 });
 
-Route::get('/welcome',function(){
-    return view('welcome',[
-       'posts'=>Posts::all(),
-       'best'=>Posts::find_get(4),
+
+Route::get('/post/{id}',function(int $id){
+    return view('post',[
+        'post'=>Posts::find_get($id),
         ]);
 });

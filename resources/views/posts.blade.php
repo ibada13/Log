@@ -43,9 +43,7 @@
         @else
         <h1>no posts</h1>
         @endisset
-        <h1> 
-            {{$best['title']}}
-        </h1>
+
       </h1>
     </body>
     </html>

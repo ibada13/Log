@@ -69,7 +69,7 @@ class Posts {
         $posts = self::all();
         foreach($posts as $post ){
             if($post['id'] == $id){
-                return $post['id'];
+                return $post;
             }
         }
         return ['title'=>'not found 404'];

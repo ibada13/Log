@@ -17,7 +17,7 @@ return new class extends Migration
             $table->integer('likes')->default(0);
             $table->timestamp('create_time')->default(now());
             $table->unsignedBigInteger('post_id')->nullable();
-            $table->foreign('post_id')->references('id')->on('post')->onDelete('cascade');
+            $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
             $table->timestamps();
 
         });

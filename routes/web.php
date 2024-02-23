@@ -18,12 +18,24 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-Route::get('/hello/{id}',function(int $id){
-    // ddd($id);
-    return response("<h1>hello there ($id) </h1>",200);
-})->where('id','[0-9]+');
-
-Route::get('search/',function(Request $req){
-    
+Route::get('/welcome',function(){
+    return view('welcome',[
+        'title'=>'this is title',
+        'value'=>123,
+        'comments'=>[
+            [
+               'id'=>1,
+               'comment'=>'this first commment',
+               'like'=>20,
+            ],[
+               'id'=>2,
+               'comment'=>'this second commment',
+               'like'=>201,
+            ],[
+               'id'=>3,
+               'comment'=>'this third commment',
+               'like'=>2450,
+            ]   
+           ]
+        ]);
 });

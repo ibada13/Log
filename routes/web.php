@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\Posts;
@@ -17,16 +18,11 @@ use App\Models\Posts;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-
-Route::get('/posts',function(){
-    $posts = Posts::with('comments')->get();
-    // $posts->each(function ($post) {
-    //     $post->topcomment = $post->topcomment();
-    // });
-    return view('layout.posts',[
-       'posts'=>$posts,
-        ]);
-});
+//postsget:
+// $posts->each(function ($post) {
+//     $post->topcomment = $post->topcomment();
+// });
+Route::get('/posts',[PostsController::class,'index']);
 
 
 
@@ -41,14 +37,4 @@ Route::get('/top',function(){
         ]);
 });
 
-Route::get('/post/{id}',function(int $id){
-    $post = Posts::get($id);
-    // dd($post);
-    if($post){
-
-        return view('layout.post',[
-            'post'=>$post,
-        ]);
-    }
-    return abort('404');
-});
+Route::get('/post/{post}',[PostsController::class,'show']);

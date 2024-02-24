@@ -20,5 +20,24 @@ class PostsController extends Controller
                     'post'=>$post,
                 ]);
     }
+    public static function top(){
+        $posts = Posts::all();
+        $posts->each(function ($post) {
+          
+            $post->topcomment = $post->topcomment();
+        });
+        return view('layout.topcomment',[
+           'posts'=>$posts,
+            ]);
+    }
+    public static function store(Request $req){
+        dd($req);
+        return "slmmm";
+    }
 
+
+
+    public static function create(){
+        return view('layout.create');
+    }
 }

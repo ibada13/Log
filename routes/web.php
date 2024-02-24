@@ -26,15 +26,10 @@ Route::get('/posts',[PostsController::class,'index']);
 
 
 
-Route::get('/top',function(){
-    $posts = Posts::all();
-    $posts->each(function ($post) {
-      
-        $post->topcomment = $post->topcomment()->makeHidden(['created_at', 'updated_at','id']);
-    });
-    return view('layout.topcomment',[
-       'posts'=>$posts,
-        ]);
-});
+Route::get('/top',[PostsController::class,'top']);
 
-Route::get('/post/{post}',[PostsController::class,'show']);
+Route::post('/posts',[PostsController::class,'store']);
+
+Route::get('/posts/create',[PostsController::class,'create']);
+
+Route::get('/posts/{post}',[PostsController::class,'show']);

@@ -7,7 +7,7 @@ use App\Models\Posts;
 class PostsController extends Controller
 {
     public static function index(){
-        $posts = Posts::with('comments')->get();
+        $posts = Posts::with('comments')->latest()->paginate(4);
         return view('layout.index',[
            'posts'=>$posts,
             ]);
@@ -31,8 +31,13 @@ class PostsController extends Controller
             ]);
     }
     public static function store(Request $req){
-        dd($req);
-        return "slmmm";
+        // dd($req);
+        $form_fields = $req->validate([
+            'content'=>'required',
+        ]);
+        Posts::create($form_fields);
+    
+       return redirect('/');
     }
 
 

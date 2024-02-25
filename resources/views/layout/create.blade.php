@@ -4,9 +4,11 @@
 @section('content')
     <form action="/posts" method="POST">
         @csrf
-        <h4 class=" text-orange-400">hello there </h4><input type="text">
+        <h1 class="text-red-500 "  >test there</h1>
         <textarea name="content" id="" cols="30" rows="10" placeholder="content">  </textarea>
+        @error('content')
+            <p class="text-red-500">{{$message}}</p>
+        @enderror
         <button type="submit">share</button>
-
     </form>
 @endsection

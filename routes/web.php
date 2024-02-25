@@ -22,7 +22,7 @@ use App\Models\Posts;
 // $posts->each(function ($post) {
 //     $post->topcomment = $post->topcomment();
 // });
-Route::get('/posts',[PostsController::class,'index']);
+Route::get('/',[PostsController::class,'index']);
 
 
 

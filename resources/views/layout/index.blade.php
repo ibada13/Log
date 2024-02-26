@@ -1,7 +1,7 @@
 @extends('app')
 @section('content')
 
-    <h1 style="text:center;"  class=" text-red-700">
+    <h1 style="text:center;"  class=" text-center">
         hello wrold
     </h1>
 

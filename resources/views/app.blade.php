@@ -11,9 +11,9 @@
 </head>
 
 <body>
-    <x-p-navbar />
+    <x-navbar />
     
-    <main class=" pt-2 mx-auto  pb-3">
+    <main class=" pt-2 mx-auto ">
         <div class="flex  bg-gray-100">
             <div class="hidden sm:flex w-1/4 h-auto bg-purple-300 ">
                     
@@ -21,13 +21,13 @@
             <div class="flex-grow w-max">
                 @yield('content')
             </div>
-            <div class="hidden md:flex w-1/6 h-auto  bg-purple-700">
+            <div class="hidden md:flex w-1/5 h-auto  bg-purple-700">
 
             </div>
         </div>
     </main>
-    <footer></footer>
-
+    
+<x-footer />
 </body>
 
 </html>

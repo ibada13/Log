@@ -9,7 +9,7 @@
     <h1>
         @isset($posts)
             @foreach ($posts as $post)
-                <x-p-post :post="$post" />
+                <x-lg.post :post="$post" />
             @endforeach
         @else
             <h1>no posts</h1>

@@ -1,6 +1,4 @@
-window.onload(() => { 
-    
-})
+
 function toggle(modalId) {
     const modalc = document.getElementById('modalcontainer' + modalId)
     console.log('modalcontainer'+modalId)
